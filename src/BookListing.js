@@ -96,11 +96,11 @@ export default class BookListing extends React.Component<Props> {
         }
 
         return <div className='row'>
-            <div className='col'>
+            <div className='col-md-12 col-lg-6'>
                 <h3>Currently Reading</h3>
                 <ol>{readingBooks}</ol>
             </div>
-            <div className='col'>
+            <div className='col-md-12 col-lg-6'>
                 <h3>Finished Reading</h3>
                 <ol>{finishedBooks}</ol>
             </div>
