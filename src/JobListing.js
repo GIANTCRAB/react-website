@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 
-type Job = {
+export type Job = {
     id: number,
     role: string,
     company: string,
@@ -14,32 +14,6 @@ type Props = {
 };
 
 export default class JobListing extends React.Component<Props> {
-    static defaultProps: Props = {
-        jobs: [
-            {
-                id: 1,
-                role: 'Fullstack Engineer',
-                company: 'Facebook/Meta',
-                location: 'Singapore',
-                currentJob: true
-            },
-            {
-                id: 2,
-                role: 'Owner',
-                company: 'WOO HUIREN',
-                location: 'Singapore',
-                currentJob: false
-            },
-            {
-                id: 3,
-                role: 'Software Engineer Intern',
-                company: 'FogLogic',
-                location: 'San Jose, California',
-                currentJob: false
-            }
-        ]
-    };
-
     render(): React$Element<"ol"> {
         let content;
         if (this.props.jobs) {

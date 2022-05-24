@@ -1,15 +1,81 @@
 // @flow
 import React from 'react';
 import BookListing from './BookListing';
+import type { Book } from './BookListing';
+import type { Job } from './JobListing';
 import JobListing from './JobListing';
 
 type Props = {
+    books: Book[],
+    jobs: Job[]
 };
 
 type State = {
 };
 
 export default class MainApp extends React.Component<Props, State> {
+    static defaultProps: Props = {
+        books: [
+            {
+                name: 'The Mythical Man-Month',
+                authors: ['Frederick P. Brooks, Jr'],
+                finishedReading: false
+            },
+            {
+                name: 'Structure and Interpretation of Computer Programs',
+                authors: ['Harold Abelson', 'Gerald Jay Sussman', 'Julie Sussman'],
+                finishedReading: false
+            },
+            {
+                name: 'Clean Architecture',
+                authors: ['Robert C Martin'],
+                finishedReading: true
+            },
+            {
+                name: 'Clean Coder',
+                authors: ['Robert C Martin'],
+                finishedReading: true
+            },
+            {
+                name: 'Clean Code',
+                authors: ['Robert C Martin'],
+                finishedReading: true
+            },
+            {
+                name: 'Continuous Delivery',
+                authors: ['Jez Humble', 'David Farley'],
+                finishedReading: true
+            },
+            {
+                name: 'The Open Organization',
+                authors: ['Jim Whitehurst'],
+                finishedReading: true
+            }
+        ], jobs: [
+            {
+                id: 3,
+                role: 'Fullstack Engineer',
+                company: 'Facebook/Meta',
+                location: 'Singapore',
+                currentJob: true
+            },
+            {
+                id: 2,
+                role: 'Owner',
+                company: 'WOO HUIREN',
+                location: 'Singapore',
+                currentJob: false
+            },
+            {
+                id: 1,
+                role: 'Software Engineer Intern',
+                company: 'FogLogic',
+                location: 'San Jose, California',
+                currentJob: false
+            }
+        ]
+    };
+
     render(): React$Element<"div"> {
         return <div className='container'>
             <div className='row'>
@@ -26,7 +92,7 @@ export default class MainApp extends React.Component<Props, State> {
             </div>
             <div className='row'>
                 <div className='col'>
-                    <JobListing />
+                    <JobListing jobs={this.props.jobs} />
                 </div>
             </div>
             <div className='row'>
@@ -49,7 +115,7 @@ export default class MainApp extends React.Component<Props, State> {
             <div className='row'>
                 <div className='col'><h2>Books</h2></div>
             </div>
-            <BookListing />
+            <BookListing books={this.props.books} />
             <div className='row'>
                 <div className='col'><h2>Contact Me</h2></div>
             </div>
